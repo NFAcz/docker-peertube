@@ -1,5 +1,7 @@
 #!/bin/sh
 
-cp /home/node/peertube/support/docker/production/config/* /config
+#cp /home/node/peertube/support/docker/production/config/* /config
 
-exec "$@"
+cd /home/node/peertube
+
+exec node dist/server
