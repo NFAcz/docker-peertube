@@ -3,7 +3,7 @@ FROM node:10-alpine
 ARG TAG=v1.0.0-beta.9
 
 RUN apk update && \
-    apk add --no-cache bash  glib-dev expat-dev tiff-dev libjpeg-turbo-dev libgsf-dev ffmpeg openssl gnupg gcc git python make g++ && \
+    apk add --no-cache bash curl glib-dev expat-dev tiff-dev libjpeg-turbo-dev libgsf-dev ffmpeg openssl gnupg gcc git python make g++ && \
     curl --compressed -o- -L https://yarnpkg.com/install.sh | bash && \
     mkdir /home/node/.npm-global && \
     mkdir /home/node/app && \
