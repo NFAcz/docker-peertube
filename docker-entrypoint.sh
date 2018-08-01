@@ -3,6 +3,7 @@
 PEERTUBE_CONFIG="/config/default.yaml"
 
 if [ -f "$PEERTUBE_CONFIG" ]; then
+	cd /home/node/peertube/
 	NODE_ENV=production node dist/server
 else
 	cp /home/node/peertube/support/docker/production/config/* /config

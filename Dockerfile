@@ -51,8 +51,6 @@ USER node
 ENV NODE_CONFIG_DIR=/config
 ENV NODE_ENV=production 
 
-RUN cp  /home/node/peertube/support/docker/production/config/* /config
-
 VOLUME ["/data", "/config"]
 EXPOSE 9000
 
