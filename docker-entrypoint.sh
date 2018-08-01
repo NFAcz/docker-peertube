@@ -1,6 +1,6 @@
 #!/bin/sh
 
-PEERTUBE_CONFIG="/config/default.yaml"
+PEERTUBE_CONFIG="/config/production.yaml"
 
 if [ -f "$PEERTUBE_CONFIG" ]; then
 	cd /home/node/peertube/
