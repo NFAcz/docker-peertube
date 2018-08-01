@@ -10,8 +10,8 @@ RUN apk update && \
     mkdir /data && \ 
     mkdir /config && \
     git clone https://github.com/Chocobozzz/PeerTube /home/node/peertube && \
-    cd /home/node/peertube
- #   git checkout tags/$TAG
+    cd /home/node/peertube && \
+    git checkout tags/$TAG
 
 # Make libvips
 RUN cd /tmp && \
@@ -35,9 +35,11 @@ ENV PATH=/home/node/.npm-global/bin:/home/node/node_modules/.bin/:$PATH
 ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
 
 RUN cd /home/node/peertube && \
-    npm install -Dg angular @angular/cli typescript . && \
-#    yarn install --pure-lockfile && \
-    npm run build
+    npm install -Dg angular @angular/cli typescript vips sharp libxmljs . && \
+    npm run build && \
+    rm -rf /home/node/peertube/node_modules && \
+    rm -rf /home/node/peertube/.git && \
+    rm -rf /home/node/peertube/client; exit 0 
 
 # Cleanup a little
 USER root
@@ -50,7 +52,6 @@ ENV NODE_CONFIG_DIR=/config
 ENV NODE_ENV=production 
 
 RUN cp  /home/node/peertube/support/docker/production/config/* /config
-RUN chown -R peertube:peertube /data /config
 
 VOLUME ["/data"]
 EXPOSE 9000
