@@ -53,7 +53,7 @@ ENV NODE_ENV=production
 
 RUN cp  /home/node/peertube/support/docker/production/config/* /config
 
-VOLUME ["/data"]
+VOLUME ["/data", "/config"]
 EXPOSE 9000
 
 COPY ./docker-entrypoint.sh /

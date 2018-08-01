@@ -1,7 +1,10 @@
 #!/bin/sh
 
-#cp /home/node/peertube/support/docker/production/config/* /config
+PEERTUBE_CONFIG="/config/default.yaml"
 
-cd /home/node/peertube
-
-exec node dist/server
+if [ -f "$PEERTUBE_CONFIG" ]; then
+	NODE_ENV=production node dist/server
+else
+	cp /home/node/peertube/support/docker/production/config/* /config
+	echo "A default config file has been placed in the /config/ volume please review and make any required changes and start the container again"
+fi
