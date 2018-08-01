@@ -21,3 +21,7 @@ docker run -v peertubeconfig:/config:rw -v peertubedata:/data:rw -p 80:9000 avho
 
 Now you can access your peertube instance via port 80. If you configure peertube with ssl, you will change the port from 80 to 443.
 
+## Tagged Version
+
+If you want to use this image in production, please conside to use the version tagged dockerimages. https://hub.docker.com/r/avhost/docker-peertube/tags/
+
