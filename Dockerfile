@@ -1,6 +1,6 @@
 FROM node:10-alpine
 
-ARG TAG=v1.0.0-beta.11
+ARG TAG=v1.0.0-beta.12
 
 RUN apk update && \
     apk add --no-cache bash curl glib-dev expat-dev tiff-dev libjpeg-turbo-dev libgsf-dev ffmpeg openssl gnupg gcc git python make g++ && \
