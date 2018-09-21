@@ -1,6 +1,6 @@
 FROM node:10-alpine
 
-ARG TAG=v1.0.0-beta.13
+ARG TAG=v1.0.0-beta.13-fixusername
 
 RUN apk update && \
     apk add --no-cache bash curl glib-dev expat-dev tiff-dev libjpeg-turbo-dev libgsf-dev ffmpeg openssl gnupg gcc git python make g++ && \
@@ -9,7 +9,7 @@ RUN apk update && \
     mkdir /home/node/app && \
     mkdir /data && \ 
     mkdir /config && \
-    git clone https://github.com/Chocobozzz/PeerTube /home/node/peertube && \
+    git clone https://github.com/NFAcz/PeerTube /home/node/peertube && \
     cd /home/node/peertube && \
     git checkout tags/$TAG
 
